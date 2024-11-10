@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.rmd": "rmd",
+        "fcntl.h": "c",
+        "types.h": "c",
+        "fcntl-linux.h": "c",
+        "callasm.C": "cpp",
+        "myc.C": "cpp"
+    }
+}
