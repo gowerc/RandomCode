@@ -14,3 +14,13 @@ kill $process_id
 
 gcc -o bin/envvars envvars.c
 ./bin/envvars
+
+
+
+
+
+gcc -o bin/floatingpoint floatingpoint.c
+bin/floatingpoint
+
+0111 1111  = 127
+100 0000 0000 0000 0000 0000
