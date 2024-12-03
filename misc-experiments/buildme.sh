@@ -19,8 +19,6 @@ gcc -o bin/envvars envvars.c
 
 
 
-gcc -o bin/floatingpoint floatingpoint.c
+gcc -o bin/floatingpoint floatingpoint.c -g
 bin/floatingpoint
 
-0111 1111  = 127
-100 0000 0000 0000 0000 0000

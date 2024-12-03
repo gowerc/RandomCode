@@ -4,6 +4,6 @@
 
 
 
-gcc -o bin/cprintf call-c-printf/cprintf.asm
+gcc  -o bin/cprintf call-c-printf/cprintf.s
 ./bin/upper-lower
 
