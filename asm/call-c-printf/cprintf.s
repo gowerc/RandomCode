@@ -4,7 +4,7 @@
 .section .text
 main:
     
-    push %rbp        # Function prologue (this happens to also)
+    push %rbp         # Function prologue (this happens to also)
     movq %rsp, %rbp   # Function prologue 
 
     movq $0xAAAAAAAAAAAAAAAA, %rsi
