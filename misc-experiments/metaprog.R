@@ -154,7 +154,7 @@ identical(x, y)
 rlang::sym(myvar)
 rlang::syms()
 rlang::ensym()
-rland::ensyms()
+rlang::ensyms()
 
 
 myfun <- function(x) {
@@ -167,3 +167,23 @@ myfun(myvar)
 # 19.3.3 With base R 
 
 
+
+library(rlang)
+eval(quote(x))
+
+
+
+
+
+
+
+
+
+
+z <- c(1,2,3)  
+f <- function(expr) {  
+    e <- new.env()  
+    e$z <- c(10, 20, 30)  
+    eval(substitute(expr), e)
+}  
+f(mean(z)) # 20
