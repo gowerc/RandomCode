@@ -23,6 +23,9 @@ union stringish {
 };
 
 
+// Note that most online conversion tools deal with numbers in BE format
+// However most general PC's deal with numbers in LE format so the conversions
+// are provided here just for reference
 
 int main() {
 

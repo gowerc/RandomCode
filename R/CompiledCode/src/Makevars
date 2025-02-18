@@ -1,0 +1,4 @@
+
+# PKG_LIBS+=/usr/local/lib2/
+
+CXX_STD = CXX14

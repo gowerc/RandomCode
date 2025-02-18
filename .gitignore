@@ -1,0 +1,24 @@
+
+# Data files
+
+**/*.RDS
+**/*.Rds
+**/*.rds
+**/*.Rdata
+**/*.Rproj
+**/*.Rhistory
+**/*.Rout
+**/*.parquet
+**/*.pdf
+
+## Compiled objects
+
+**/*.o
+**/*.so
+
+
+## Mac stuff
+
+.DS_Store
+.DS_store
+
