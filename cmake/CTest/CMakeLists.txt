@@ -34,11 +34,48 @@ add_test(
     COMMAND "python3" "${CMAKE_CURRENT_LIST_DIR}/tests/test.py"
 )
 
-# There is an additional third argument
+# Define a regular expression to match the output of the stdout
+# of a test that must match for the test to be considered
+# a pass
+add_test(
+    NAME hello_world
+    COMMAND "echo" "Hello World"
+)
+set_property(
+    TEST hello_world
+    PROPERTY PASS_REGULAR_EXPRESSION "Hello World"
+)
+# Other properites that can be set:
+#     ENVIRONMENT "VAR1=value;VAR2=value"   # Sets environment variables during test
+#     LABELS "label"    # Labels for logical grouping / execution
+#     WILL_FAIL TRUE    # Test is regarded as passed if error code is non-0
+#     PASS_REGULAR_EXPRESSION "regex"   # Regular expression to match stdout
+#     FAIL_REGULAR_EXPRESSION "regex"   # Regular expression to match stdout
+
+
+
+# There is an additional third argument to `add_test()`
 # WORKING_DIRECTORY <dir>
 # which can be used to set the working directory of the test
 
 
+#
+# When running `include(CTest)` it automatically runs
+# `enable_testing()` unless if `BUILD_TESTING` has been set to "OFF"
+# If `enable_testing()` is not called, then `add_test()` will not
+# create any tests, but will still create the test executables
+#
+# A common workflow then is simply to have the following in your top most
+# CMakeLists.txt file:
+# ```
+# include(CTest)
+# if (BUILD_TESTING)
+#     add_subdirectory(tests)
+# endif()
+#
+# Where the `tests` directory contains the the CMakelists.txt that defines
+# all of your tests
+#
 
 
 ## Add Catch2
