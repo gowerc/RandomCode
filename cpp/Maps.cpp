@@ -110,6 +110,7 @@ int main () {
     }
 
     std::cout << "\n\n---- Regular looping -----\n" << std::endl;
+    // Example of normal for loop syntax to loop over a map
     for(auto& val: ucities) {
         std::cout << "City = " << val.first.name << ", val = " << val.second << std::endl;
     }
