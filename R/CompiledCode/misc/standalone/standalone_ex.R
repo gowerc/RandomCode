@@ -7,12 +7,17 @@
 #    R CMD SHLIB misc/standalone_ex.c
 #
 
-dyn.load("./misc/standalone_ex.so")
+dyn.load("./misc/standalone/example1.so")
+
+
+
+library.dynam()
+getLoadedDLLs()
+
 
 .Call("add_numbers_call", 2, 2)
 
 
-
-
+dyn.load()
 
 
