@@ -1,6 +1,57 @@
 
 ##############
 #
+# showing the use of LD_LIBRARY_PATH and LIBRARY_PATH
+# in the linker and loader
+#
+#
+# In short
+#    LIBRARY_PATH = 1st order deps in linker
+#    LD_LIBRARY_PATH = >=2nd order deps in linker
+#    LD_LIBRARY_PATH = all order deps in loader
+
+unset LIBRARY_PATH LD_LIBRARY_PATH
+export LIBRARY_PATH=./foo:./bar
+g++ -fPIC -shared -o ./foo/libfoo.so foo/foo.cpp
+g++ -fPIC -shared -o ./bar/libbar.so bar/bar.cpp
+g++ -fPIC -shared \
+    -I ./foo \
+    -I ./bar \
+    -l foo \
+    -l bar \
+    -o ./foobar/libfoobar.so \
+    foobar/foobar.cpp
+
+
+unset LIBRARY_PATH LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=./foo:./bar
+export LIBRARY_PATH=./foobar
+g++ \
+    -o bin/main_foobar \
+    -l foobar \
+    -I ./foobar \
+    main_foobar.cpp
+
+
+# Errors as won't search LIBRARY_PATH for 2nd order deps
+unset LIBRARY_PATH LD_LIBRARY_PATH
+export LIBRARY_PATH=./foobar:./foo:./bar
+g++ \
+    -o bin/main_foobar \
+    -l foobar \
+    -I ./foobar \
+    main_foobar.cpp
+
+
+unset LIBRARY_PATH LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=./foobar:./foo:./bar
+./bin/main_foobar
+
+
+
+
+##############
+#
 # Experimenting with RPATH / RUNPATH
 #
 #
